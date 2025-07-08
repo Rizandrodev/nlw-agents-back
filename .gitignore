@@ -43,3 +43,6 @@ docker-compose.override.yml
 prisma/migrations/
 
 # Next.j
+
+#
+*.txt
