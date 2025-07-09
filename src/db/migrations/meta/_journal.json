@@ -15,6 +15,13 @@
       "when": 1752064482327,
       "tag": "0001_sharp_groot",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752072530420,
+      "tag": "0002_early_omega_red",
+      "breakpoints": true
     }
   ]
 }

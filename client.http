@@ -1,17 +1,20 @@
-@baseurl=http://localhost:3333
+@baseurl = http://localhost:3333
 
-# # Health check
-# GET {{baseurl}}/health
+### Health check
+GET {{baseurl}}/health
 
- # Get Rooms
- GET {{baseurl}}/rooms
+### Get Rooms
+GET {{baseurl}}/rooms
 
-# Create room
-# POST {{baseurl}}/rooms
-# Accept: application/json
-# Content-Type: application/json
+### Create Room
+POST {{baseurl}}/rooms
+Accept: application/json
+Content-Type: application/json
 
-# {
-#   "name": "Sala de teste",
-#   "description": "Esta é uma sala de teste"
-# }
+{
+  "name": "Sala de teste",
+  "description": "Esta e uma sala de teste"
+}
+
+### GET room question 
+GET {{baseurl}}/rooms/2766e1ad-dc18-489b-9586-14b58a6a7137/questions
