@@ -21,6 +21,6 @@ export const createRoomsRoute: FastifyPluginCallbackZod = (app) => {
     if(!insertedRoom){
       throw new Error('Failed to create new room')
     }
-    return reply.status(201).send({reconId:insertedRoom.id})
+    return reply.status(201).send({roomId:insertedRoom.id})
   })
 }
