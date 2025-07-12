@@ -1,6 +1,6 @@
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod'
 import z from 'zod/v4'
-import { transcribeAudio } from '../services/gemini.ts';
+import { generateEmbeddings, transcribeAudio } from '../services/gemini.ts';
 
 export const uploadAudioRoute: FastifyPluginCallbackZod = (app) => {
   app.post('/rooms/:roomId/audio', {
@@ -11,7 +11,7 @@ export const uploadAudioRoute: FastifyPluginCallbackZod = (app) => {
       // Nenhum body em JSON aqui, pois estamos lidando com multipart/form-data
     },
   }, async (request, reply) => {
-    const { roomId } = request.params
+    //const { roomId } = request.params
     const audio = await request.file();
 
     if (!audio) {
@@ -19,13 +19,15 @@ export const uploadAudioRoute: FastifyPluginCallbackZod = (app) => {
     }
 
     const AudioBuffer=await audio.toBuffer()
-    const audioAsBase64=AudioBuffer.toString('base64')
+      const audioAsBase64=AudioBuffer.toString('base64')
 
-    const transcription = await transcribeAudio(
-      audioAsBase64,
-      audio.mimetype
-    )
-    return {transcription }
+      const transcription = await transcribeAudio(
+        audioAsBase64,
+        audio.mimetype
+      )
+
+    const embeddings=await generateEmbeddings(transcription)
+    return {transcription,embeddings}
     
   });
 };
