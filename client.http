@@ -37,9 +37,9 @@ GET {{baseUrl}}/rooms/{{roomId}}/questions
 
 # Create question
 # @name createQuestion
-POST {{baseUrl}}/rooms/{{roomId}}/questions
+POST {{baseUrl}}/rooms/aff7cb11-8fa3-44ff-b3df-5994d69ed40f/questions
 Content-Type: application/json
 
 {
-  "question": "how many libs had java "
+  "question": "Quem e Post malone"
 }

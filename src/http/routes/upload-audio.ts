@@ -29,6 +29,7 @@ export const uploadAudioRoute: FastifyPluginCallbackZod = (app) => {
       )
 
     const embeddings=await generateEmbeddings(transcription)
+
     const result = await db
     .insert(schema.audioChunks)
     .values({
